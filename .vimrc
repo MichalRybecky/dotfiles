@@ -61,3 +61,5 @@ nnoremap <silent> <Leader>- :vertical resize -5<CR>
 nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
 noremap <silent> <Leader>gf :YcmCompleter FixIt<CR>
 
+# Fixes mouse issue using Alacritty
+set ttymouse=sgt
