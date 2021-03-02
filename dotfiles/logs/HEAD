@@ -1,0 +1,10 @@
+0000000000000000000000000000000000000000 afd693f12bca1d9a2b97329a53fc9c74c4112a8c Michal Rybecky <michalrybec@protonmail.com> 1614676506 +0100	commit (initial): initial commit
+afd693f12bca1d9a2b97329a53fc9c74c4112a8c 0000000000000000000000000000000000000000 Michal Rybecky <michalrybec@protonmail.com> 1614676512 +0100	Branch: renamed refs/heads/master to refs/heads/main
+0000000000000000000000000000000000000000 afd693f12bca1d9a2b97329a53fc9c74c4112a8c Michal Rybecky <michalrybec@protonmail.com> 1614676512 +0100	Branch: renamed refs/heads/master to refs/heads/main
+afd693f12bca1d9a2b97329a53fc9c74c4112a8c 7015b14d405aade2675c44f73dd53a7f9ab36232 Michal Rybecky <michalrybec@protonmail.com> 1614676622 +0100	commit: Added Xresources
+7015b14d405aade2675c44f73dd53a7f9ab36232 6be861d2776163b19325a94c4e20555b7cbf1033 Michal Rybecky <michalrybec@protonmail.com> 1614676671 +0100	commit: Added xinitrc
+6be861d2776163b19325a94c4e20555b7cbf1033 fede008d5ef6a96081d4997d4beec3c8dd412271 Michal Rybecky <michalrybec@protonmail.com> 1614676815 +0100	commit: Added gitignore
+fede008d5ef6a96081d4997d4beec3c8dd412271 93a3f7d98136fe25c1a05ec322e578d808b5f8e0 Michal Rybecky <michalrybec@protonmail.com> 1614676859 +0100	commit: Added neofetch
+93a3f7d98136fe25c1a05ec322e578d808b5f8e0 4a4ed062ad8f030d2fb695aaac518a924d072812 Michal Rybecky <michalrybec@protonmail.com> 1614676954 +0100	commit: Added bashrc
+4a4ed062ad8f030d2fb695aaac518a924d072812 86ea4f238348d1163b1dafb7509d23d45bd432e6 Michal Rybecky <michalrybec@protonmail.com> 1614679549 +0100	commit: Added vimrc
+86ea4f238348d1163b1dafb7509d23d45bd432e6 7e79d9a372801f2a88e2ec1cb590c897cbbfa771 Michal Rybecky <michalrybec@protonmail.com> 1614679716 +0100	commit: vimrc update: fixing mouse issue in vim using alacritty terminal

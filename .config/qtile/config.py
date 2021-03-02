@@ -30,7 +30,7 @@ from custom.stack import Stack as CustomStack
 from custom.windowname import WindowName as CustomWindowName
 
 mod = "mod4"
-terminal = "urxvt"
+terminal = "alacritty"
 myconfig = "/home/michal/.config/qtile/config.py"
 
 ## Resize functions for bsp layout
@@ -441,11 +441,7 @@ workspaces = [
     {
         "name": "",
         "key": "6",
-        "matches": [
-            Match(wm_class="slack"),
-            Match(wm_class="lightcord"),
-            Match(wm_class="polari"),
-        ],
+        "matches": [Match(wm_class="slack"),],
     },
     {"name": "", "key": "7", "matches": [Match(wm_class="spotify")]},
     {"name": "", "key": "8", "matches": [Match(wm_class="teams-for-linux")]},
