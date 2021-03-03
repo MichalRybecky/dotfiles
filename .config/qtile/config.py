@@ -31,7 +31,6 @@ from custom.windowname import WindowName as CustomWindowName
 
 mod = "mod4"
 terminal = "alacritty"
-myconfig = "/home/michal/.config/qtile/config.py"
 
 ## Resize functions for bsp layout
 def resize(qtile, direction):
@@ -84,20 +83,58 @@ def resize_down(qtile):
 
 keys = [
     ### The essentials
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launches My Terminal"),
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle through layouts"),
-    Key([mod], "q", lazy.window.kill(), desc="Kill active window"),
-    Key([mod, "shift"], "r", lazy.restart(), desc="Restart Qtile"),
-    Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod, "shift"], "a", lazy.spawn("subl /home/michal/.config/qtile/config.py"), desc="Config qtile",),
-    Key([mod], "w", lazy.spawn("librewolf"), desc="Launches LibreWolf"),
-    Key([mod], "d", lazy.spawn("dmenu_run"), desc="Launches dmenu"),
+    Key(
+        [mod], "Return",
+        lazy.spawn(terminal),
+        desc="Launches My Terminal",
+    ),
+    Key(
+        [mod], "Tab",
+        lazy.next_layout(),
+        desc="Toggle through layouts",
+    ),
+    Key(
+        [mod], "q",
+        lazy.window.kill(),
+        desc="Kill active window",
+    ),
+    Key(
+        [mod, "shift"], "r",
+        lazy.restart(),
+        desc="Restart Qtile",
+    ),
+    Key(
+        [mod, "shift"], "q",
+        lazy.shutdown(),
+        desc="Shutdown Qtile",
+    ),
+    Key(
+        [mod, "shift"],
+        "a",
+        lazy.spawn("subl /home/michal/.config/qtile/config.py"),
+        desc="Config qtile",
+    ),
+    Key(
+        [mod], "w",
+        lazy.spawn("librewolf"),
+        desc="Launches LibreWolf",
+    ),
+    Key(
+        [mod], "d",
+        lazy.spawn("dmenu_run"),
+        desc="Launches dmenu",
+    ),
 
     ### Window controls
     Key(
-        [mod], "j", lazy.layout.down(), desc="Move focus down in current stack pane"
+        [mod], "j",
+        lazy.layout.down(),
+        desc="Move focus down in current stack pane",
     ),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up in current stack pane"),
+    Key([mod], "k",
+        lazy.layout.up(),
+        desc="Move focus up in current stack pane",
+    ),
     Key(
         [mod],
         "h",
@@ -140,27 +177,84 @@ keys = [
         lazy.layout.client_to_next(),
         desc="Move windows right in the current stack",
     ),
-    Key([mod, "control"], "j", lazy.layout.flip_down(), desc="Flip layout down"),
-    Key([mod, "control"], "k", lazy.layout.flip_up(), desc="Flip layout up"),
-    Key([mod, "control"], "h", lazy.layout.flip_left(), desc="Flip layout left"),
-    Key([mod, "control"], "l", lazy.layout.flip_right(), desc="Flip layout right"),
-    Key([mod], "u", resize_left, desc="Resize window left",),
-    Key([mod], "i", resize_right, desc="Resize window Right",),
-    Key([mod], "o", resize_up, desc="Resize windows upward"),
-    Key([mod], "p", resize_down, desc="Resize windows downward"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Normalize window size ratios"),
-    Key([mod], "m", lazy.layout.maximize(),
-    	desc="Toggle window between minimum and maximum sizes",
+    Key(
+        [mod, "control"],
+        "j",
+        lazy.layout.flip_down(),
+        desc="Flip layout down",
     ),
-    Key([mod, "shift"], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
-    Key([mod], "equal", lazy.layout.grow(), desc="Grow in monad tall"),
-    Key([mod], "minus", lazy.layout.shrink(), desc="Shrink in monad tall"),
+    Key(
+        [mod, "control"],
+        "k",
+        lazy.layout.flip_up(),
+        desc="Flip layout up",
+    ),
+    Key(
+        [mod, "control"],
+        "h",
+        lazy.layout.flip_left(),
+        desc="Flip layout left",
+    ),
+    Key(
+        [mod, "control"],
+        "l",
+        lazy.layout.flip_right(),
+        desc="Flip layout right",
+    ),
+    Key(
+        [mod],
+        "u",
+        resize_left,
+        desc="Resize window left",
+    ),
+    Key(
+        [mod],
+        "i",
+        resize_right,
+        desc="Resize window Right",
+    ),
+    Key(
+        [mod], "o",
+        resize_up,
+        desc="Resize windows upward",
+    ),
+    Key(
+        [mod], "p",
+        resize_down,
+        desc="Resize windows downward",
+    ),
+    Key(
+        [mod], "n",
+        lazy.layout.normalize(),
+        desc="Normalize window size ratios",
+    ),
+    Key(
+        [mod],
+        "m",
+        lazy.layout.maximize(),
+        desc="Toggle window between minimum and maximum sizes",
+    ),
+    Key(
+        [mod, "shift"], "f",
+        lazy.window.toggle_fullscreen(),
+        desc="Toggle fullscreen",
+    ),
+    Key(
+        [mod], "equal",
+        lazy.layout.grow(), desc="Grow in monad tall",
+    ),
+    Key(
+        [mod], "minus",
+        lazy.layout.shrink(),
+        desc="Shrink in monad tall",
+    ),
     Key(
         [mod],
         "t",
         lazy.window.toggle_floating(),
         desc="Toggle floating on focused window",
     ),
+
     ### Stack controls
     Key(
         [mod],
@@ -169,44 +263,12 @@ keys = [
         lazy.layout.flip(),
         desc="Switch which side main pane occupies {MonadTall}",
     ),
-    # Key(
-    #    [mod],
-    #    "f",
-    #    lazy.layout.next(),
-    #    desc="Switch window focus to other pane/s of stack",
-    # ),
     Key(
         [mod],
         "s",
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-    ### Misc. Commands
-    Key(
-        [mod],
-        "b",
-        lazy.spawn("qtile-cmd -o cmd -f hide_show_bar"),
-        desc="Toggle bar visibility",
-    ),
-    Key(
-        [mod],
-        "backslash",
-        lazy.spawn("sh -c 'thunar \"$(xcwd)\"'"),
-        desc="Launch thunar",
-    ),
-    Key(
-        [mod, "shift"],
-        "Return",
-        lazy.spawn("sh -c 'alacritty --working-directory \"$(xcwd)\"'"),
-        desc="Launch terminal from directory of focused window",
-    ),
-    Key(
-        [mod, "mod1"],
-        "space",
-        lazy.spawn("./.config/sxhkd/old_scripts/rofi-task"),
-        desc="Rofi taskwarrior",
-    ),
-    Key([mod, "shift"], "m", lazy.spawn("splatmoji copy"), desc="*moji selector"),
     Key(
         [mod, "shift"],
         "w",
@@ -214,168 +276,34 @@ keys = [
         desc="Toggle focus mode",
     ),
     Key(
-        [mod, "control"],
-        "w",
-        lazy.spawn("rofi -theme ~/.config/rofi/configTall.rasi -show window"),
-        # lazy.spawn("rofi -display-window '□' -show window"),
-        desc="Rofi window select",
+        [], "XF86AudioNext",
+        lazy.spawn("playerctl next"),
+        desc="Play next audio",
     ),
     Key(
-        [mod, "control"],
-        "w",
-        lazy.spawn("nc_flash_window"),
-        desc="Flash currently focused window",
+        [], "XF86AudioPlay",
+        lazy.spawn("playerctl play-pause"),
+        desc="Toggle play/pause audio"
     ),
     Key(
-        [mod],
-        "space",
-        lazy.spawn("./.config/sxhkd/old_scripts/rofi_notes.sh"),
-        desc="Rofi quick notes",
-    ),
-    Key(
-        [],
-        "Print",
-        lazy.spawn("./.config/sxhkd/prtscr"),
-        desc="Print Screen",
-    ),
-    Key(
-        [mod],
-        "Print",
-        lazy.spawn("./.config/sxhkd/prtregion -d"),
-        desc="Print region of screen",
-    ),
-    Key(
-        [mod, "shift"],
-        "Print",
-        lazy.spawn("./.config/sxhkd/prtregion -c"),
-        desc="Print region of screen to clipboard",
-    ),
-    # Key(
-    #    [mod],
-    #    "F10",
-    #    lazy.spawn("./.config/qtile/eww_bright.sh up"),
-    #    desc="Increase brightness",
-    # ),
-    # Key(
-    #    [mod],
-    #    "F9",
-    #    lazy.spawn("./.config/qtile/eww_bright.sh down"),
-    #    desc="Decrease brightness",
-    # ),
-    Key(
-        [],
-        "XF86AudioRaiseVolume",
-        lazy.spawn("./.config/qtile/eww_vol.sh up"),
-        desc="Increase volume",
-    ),
-    Key(
-        [],
-        "XF86AudioLowerVolume",
-        lazy.spawn("./.config/qtile/eww_vol.sh down"),
-        desc="Decrease volume",
-    ),
-    Key(
-        [],
-        "XF86AudioMute",
-        lazy.spawn("./.config/qtile/eww_vol.sh mute"),
-        desc="Toggle mute",
-    ),
-    Key(
-        [mod],
-        "XF86AudioRaiseVolume",
-        lazy.spawn("./.config/sxhkd/vol pulsemic up"),
-        desc="Increase mic volume",
-    ),
-    Key(
-        [mod],
-        "XF86AudioLowerVolume",
-        lazy.spawn("./.config/sxhkd/vol pulsemic down"),
-        desc="Decrease mic volume",
-    ),
-    Key(
-        [mod],
-        "XF86AudioMute",
-        lazy.spawn("./.config/sxhkd/vol pulsemic mute"),
-        desc="Toggle mic mute",
-    ),
-    Key(
-        [mod],
-        "F7",
+        [], "XF86AudioPrev",
         lazy.spawn("playerctl previous"),
-        desc="Play last audio",
-    ),
-    Key([mod], "F8", lazy.spawn("playerctl next"), desc="Play next audio"),
-    Key(
-        [mod], "F5", lazy.spawn("playerctl play-pause"), desc="Toggle play/pause audio"
-    ),
-    Key([mod], "F6", lazy.spawn("playerctl stop"), desc="Stop audio"),
-    Key(
-        [mod], "F4", lazy.spawn("./.config/sxhkd/.caffeine.sh"), desc="Toggle caffeine"
+        desc="Play previous audio",
     ),
     Key(
-        [mod],
-        "z",
-        lazy.spawn("./.config/sxhkd/old_scripts/rofi-files"),
-        desc="Find files",
+        [], "XF86AudioMute",
+        lazy.spawn("amixer -q -D pulse sset Master toggle"),
+        desc="Mute audio",
     ),
     Key(
-        [mod, "shift"],
-        "z",
-        lazy.spawn("./.config/sxhkd/rofi-search.sh"),
-        desc="Google search",
+        [], "XF86AudioRaiseVolume",
+        lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +1%"),
+        desc="Raise volume",
     ),
     Key(
-        [mod, "control"],
-        "r",
-        lazy.spawn("mp4"),
-        desc="Record selected part of screen in mp4",
-    ),
-    Key(
-        [mod, "control", "shift"],
-        "r",
-        lazy.spawn("gif"),
-        desc="Record selected part of screen as gif",
-    ),
-    Key(
-        [mod, "shift"],
-        "p",
-        lazy.spawn("./.config/sxhkd/togglepicom"),
-        desc="Toggle picom",
-    ),
-    Key([mod], "x", lazy.spawn("./.config/sxhkd/greenclip"), desc="Greenclip"),
-    Key([mod, "shift"], "c", lazy.spawn("colorpick.sh"), desc="Color picker"),
-    Key([mod], "j", lazy.spawn("./.config/sxhkd/spotnotif"), desc="What is playing?"),
-    Key(
-        [mod, "control"],
-        "c",
-        lazy.spawn("./.config/sxhkd/old_scripts/toggledunst"),
-        desc="Toggle dunst",
-    ),
-    Key(
-        [mod, "mod1"],
-        "c",
-        lazy.spawn(
-            "sh -c 'xdotool mousemove --window \"$(xdotool getwindowfocus)\" --polar 0 0'"
-        ),
-        desc="Teleport cursor to center of focused window",
-    ),
-    Key(
-        [mod],
-        "grave",
-        lazy.spawn("./.local/bin/rofi_notif_center.sh"),
-        desc="Open notification center",
-    ),
-    Key(
-        [],
-        "XF86Calculator",
-        lazy.spawn("galculator"),
-        desc="Launch calculator",
-    ),
-    Key(
-        [mod],
-        "r",
-        lazy.spawn("./.config/qtile/toggle_redshift.sh"),
-        desc="Toggle redshift",
+        [], "XF86AudioLowerVolume",
+        lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -1%"),
+        desc="Lower volume",
     ),
 ]
 
@@ -417,42 +345,56 @@ keys.extend(
 )
 
 workspaces = [
-    {"name": "", "key": "1", "matches": [
-        Match(wm_class="librewolf"),
-        Match(wm_class="firefox"),
-        Match(wm_class="firefox-nightly"),
-        ]},
+    {
+        "name": "",
+        "key": "1",
+        "matches": [
+            Match(wm_class="librewolf"),
+            Match(wm_class="firefox"),
+        ],
+    },
     {
         "name": "",
         "key": "2",
-        "matches": [Match(wm_class="signal-desktop")],
-    },
-    {
-        "name": "",
-        "key": "3",
         "matches": [
-            Match(wm_class="joplin"),
-            Match(wm_class="libreoffice"),
-            Match(wm_class="org.pwmt.zathura"),
+            Match(wm_class="signal-desktop"),
+            Match(wm_class="lightcord"),
         ],
     },
-    {"name": "", "key": "4", "matches": [Match(wm_class="subl")]},
-    {"name": "", "key": "5", "matches": [Match(wm_class="")]},
     {
-        "name": "",
-        "key": "6",
-        "matches": [Match(wm_class="slack"),],
-    },
-    {"name": "", "key": "7", "matches": [Match(wm_class="spotify")]},
-    {"name": "", "key": "8", "matches": [Match(wm_class="teams-for-linux")]},
-    {"name": "", "key": "9", "matches": [Match(wm_class="virtualbox")]},
-    {
-        "name": "",
-        "key": "0",
+        "name": "",
+        "key": "3",
         "matches": [
-            Match(wm_class="lxappearance"),
-            Match(wm_class="pavucontrol"),
-            Match(wm_class="connman-gtk"),
+            Match(wm_class="subl"),
+        ],
+    },
+    {
+        "name": "",
+        "key": "4",
+        "matches": [
+            Match(wm_class="lutris"),
+            Match(wm_class="steam"),
+            ],
+    },
+    {
+        "name": "",
+        "key": "5",
+        "matches": [
+            Match(wm_class="spotify")
+        ],
+    },
+    {
+        "name": "",
+        "key": "6",
+        "matches": [
+            Match(wm_class="teams-for-linux")
+        ],
+    },
+    {
+        "name": "",
+        "key": "7",
+        "matches": [
+            Match(wm_class="virtualbox")
         ],
     },
 ]
@@ -508,7 +450,7 @@ for workspace in workspaces:
 
 layout_theme = {
     "border_width": 3,
-    "margin": 7,
+    "margin": 5,
     "border_focus": "3b4252",
     "border_normal": "3b4252",
     "font": "FiraCode Nerd Font",
@@ -556,16 +498,6 @@ widget_defaults = dict(
     font="FiraCode Nerd Font", fontsize=18, padding=3, background=colors[0]
 )
 extension_defaults = widget_defaults.copy()
-
-
-### Mouse_callback functions
-
-def kill_window():
-    qtile.cmd_spawn("xdotool getwindowfocus windowkill")
-
-
-def open_connman():
-    qtile.cmd_spawn("connman-gtk")
 
 
 # Drag floating layouts.
