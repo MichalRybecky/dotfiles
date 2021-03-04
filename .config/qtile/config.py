@@ -489,7 +489,7 @@ layouts = [
     # layout.MonadTall(**layout_theme),
     # layout.Max(**layout_theme),
     # layout.Tile(shift_windows=True, **layout_theme),
-    # layout.Floating(**layout_theme, fullscreen_border_width=3, max_border_width=3),
+    layout.Floating(**layout_theme),
 ]
 
 # Setup bar
@@ -554,12 +554,6 @@ cursor_warp = False
 # )
 auto_fullscreen = True
 focus_on_window_activation = "focus"
-
-# Startup scripts
-@hook.subscribe.startup_once
-def start_once():
-    home = os.path.expanduser("~")
-    subprocess.call([home + "/.config/qtile/autostart.sh"])
 
 
 # Window swallowing ;)

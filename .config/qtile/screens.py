@@ -34,10 +34,6 @@ def bluetooth():
     )
 
 
-def open_launcher():
-    qtile.cmd_spawn("./.config/rofi/launchers/ribbon/launcher.sh")
-
-
 def update():
     qtile.cmd_spawn(terminal + "-e yay")
 
@@ -52,14 +48,6 @@ def open_pavu():
 
 def toggle_bluetooth():
     qtile.cmd_spawn("./.config/qtile/system-bluetooth-bluetoothctl.sh --toggle")
-
-
-def kill_window():
-    qtile.cmd_spawn("xdotool getwindowfocus windowkill")
-
-
-def open_powermenu():
-    qtile.cmd_spawn("./.config/rofi/powermenu/powermenu.sh")
 
 
 def taskwarrior():
@@ -102,7 +90,6 @@ screens = [
                     background=colors[0],
                     fontsize=28,
                     padding=20,
-                    # mouse_callbacks={"Button1": open_launcher},
                 ),
                 # widget.Sep(
                 #    linewidth=2,
@@ -203,7 +190,7 @@ screens = [
                 ),
                 widget.GenPollText(
                     func=taskwarrior,
-                    update_interval=5,
+                    update_interval=20,
                     foreground=colors[11],
                     background=colors[14],
                 ),
@@ -227,7 +214,6 @@ screens = [
                     width=bar.CALCULATED,
                     empty_group_string="Desktop",
                     max_chars=60,
-                    mouse_callbacks={"Button2": kill_window},
                 ),
                 widget.CheckUpdates(
                     background=colors[0],
@@ -438,16 +424,22 @@ screens = [
                 #    padding=25,
                 #    size_percent=50,
                 # ),
-                widget.TextBox(
-                    text="⏻",
-                    foreground=colors[13],
-                    font="Font Awesome 5 Free Solid",
-                    fontsize=34,
-                    padding=20,
-                    mouse_callbacks={"Button1": open_powermenu},
+                # widget.TextBox(
+                #     text="⏻",
+                #     foreground=colors[13],
+                #     font="Font Awesome 5 Free Solid",
+                #     fontsize=34,
+                #     padding=20,
+                #     mouse_callbacks={"Button1": open_powermenu},
+                # ),
+                widget.Sep(
+                   linewidth=0,
+                   foreground=colors[2],
+                   padding=10,
+                   size_percent=50,
                 ),
             ],
-            48,
+            38,
             margin=[0, -4, 10, -4],
         ),
         bottom=bar.Gap(5),

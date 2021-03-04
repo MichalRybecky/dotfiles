@@ -7,11 +7,11 @@ most_urgent_due=`task rc.verbose: rc.report.next.columns:due.relative rc.report.
 echo "$most_urgent_id" > /tmp/tw_polybar_id
 
 if (( $(echo "$most_urgent_urgency >= 1" |bc -l) )); then
-	if [[ "$most_urgent_due" == "" ]]; then
-		echo "<span font_desc='Font Awesome 5 Free Solid' foreground='#d08770'></span> $most_urgent_desc "
-	else
-		echo "<span font_desc='Font Awesome 5 Free Solid' foreground='#d08770'></span> $most_urgent_desc" # · %{F#d9bb80}%{F-} $most_urgent_due "
-	fi
+    if [[ "$most_urgent_due" == "" ]]; then
+        echo "<span font_desc='Font Awesome 5 Free Solid' foreground='#d08770'></span> $most_urgent_desc "
+    else
+        echo "<span font_desc='Font Awesome 5 Free Solid' foreground='#d08770'></span> $most_urgent_desc · %{F#d9bb80}%{F-} $most_urgent_due "
+    fi
 else
-	echo "<span font_desc='Font Awesome 5 Free Solid' foreground='#d08770'></span> No current task"
+    echo "<span font_desc='Font Awesome 5 Free Solid' foreground='#d08770'></span> No current task"
 fi
