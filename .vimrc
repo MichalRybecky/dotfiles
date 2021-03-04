@@ -24,10 +24,15 @@ Plug 'vim-utils/vim-man'
 Plug 'git@github.com:kien/ctrlp.vim.git'
 Plug 'git@github.com:Valloric/YouCompleteMe.git'
 Plug 'mbbill/undotree'
+Plug 'joshdick/onedark.vim'
+Plug 'sainnhe/sonokai'
 
 call plug#end()
 
-colorscheme gruvbox
+let g:sonokai_style = 'atlantis'
+let g:sonokai_transparent_background = 1
+
+colorscheme sonokai
 set background=dark
 
 if executable('rg')
