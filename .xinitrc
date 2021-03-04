@@ -63,5 +63,8 @@ numlockx &
 # Merge Xresources
 xrdb -merge ~/.Xresources
 
+# Synology cloud station drive
+synology-cloud-station-drive &
+
 # Execute Qtile
 exec qtile

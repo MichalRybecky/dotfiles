@@ -37,8 +37,8 @@
 
 
 ! URxvt
-!URxvt.font:		xft:Source Code Pro:size=14
-!URxvt.font: 		xft:FiraCode Nerd Font:size=14
+!URxvt.font:			xft:Source Code Pro:size=14
+URxvt.font: 		xft:FiraCode Nerd Font:size=14
 !URxvt.bondFont:		xft:Source Code Pro:bold:size=14
 URxvt.scrollBar:	false
 URxvt.lineSpace:	-2

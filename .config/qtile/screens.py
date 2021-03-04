@@ -23,7 +23,7 @@ from custom.windowname import WindowName as CustomWindowName
 
 from colors import colors
 
-terminal = "urxvt"
+terminal = "alacritty"
 
 
 def bluetooth():
@@ -96,16 +96,6 @@ screens = [
         wallpaper_mode="fill",
         top=bar.Bar(
             [
-                # widget.Image(
-                #   background=colors[0],
-                #    filename="~/.config/qtile/icons/qtilelogo.png",
-                #    margin=6,
-                #    mouse_callbacks={
-                #        "Button1": lambda qtile: qtile.cmd_spawn(
-                #            "./.config/rofi/launchers/ribbon/launcher.sh"
-                #        )
-                #    },
-                # ),
                 widget.TextBox(
                     text="",
                     foreground=colors[13],
@@ -134,7 +124,7 @@ screens = [
                 ),
                 widget.GroupBox(
                     font="Font Awesome 5 Free Solid",
-                    visible_groups=["", "", "", "", ""],
+                    visible_groups=["", "", "", ""],
                     **group_box_settings,
                 ),
                 widget.GroupBox(
@@ -152,11 +142,7 @@ screens = [
                     visible_groups=[""],
                     **group_box_settings,
                 ),
-                widget.GroupBox(
-                    font="Font Awesome 5 Free Solid",
-                    visible_groups=[""],
-                    **group_box_settings,
-                ),
+
                 widget.TextBox(
                     text="",
                     foreground=colors[14],
@@ -247,40 +233,28 @@ screens = [
                     background=colors[0],
                     foreground=colors[3],
                     colour_have_updates=colors[3],
-                    # custom_command="./.config/qtile/updates-arch-combined",
+                    custom_command="./.config/qtile/updates-arch-combined",
                     display_format=" {updates}",
                     execute=update,
                     padding=20,
+                    update_interval=300,
                 ),
                 widget.Spacer(),
-                widget.TextBox(
-                    text="",
-                    foreground=colors[14],
-                    background=colors[0],
-                    fontsize=28,
-                    padding=0,
-                ),
-                widget.Systray(background=colors[14], padding=20),
-                # CustomPomodoro(
-                #     background=colors[14],
-                #     fontsize=24,
-                #     color_active=colors[3],
-                #     color_break=colors[6],
-                #     color_inactive=colors[10],
-                #     timer_visible=False,
-                #     prefix_active="",
-                #     prefix_break="",
-                #     prefix_inactive="",
-                #     prefix_long_break="",
-                #     prefix_paused="",
+                # widget.TextBox(
+                #     text="",
+                #     foreground=colors[14],
+                #     background=colors[0],
+                #     fontsize=28,
+                #     padding=0,
                 # ),
-                widget.TextBox(
-                    text="",
-                    foreground=colors[14],
-                    background=colors[0],
-                    fontsize=28,
-                    padding=0,
-                ),
+                widget.Systray(background=colors[0], padding=20),
+                # widget.TextBox(
+                #     text="",
+                #     foreground=colors[14],
+                #     background=colors[0],
+                #     fontsize=28,
+                #     padding=0,
+                # ),
                 widget.Sep(
                     linewidth=0,
                     foreground=colors[2],
@@ -305,6 +279,7 @@ screens = [
                     foreground=colors[8],
                     background=colors[14],
                     limit_max_volume="True",
+                    update_interval=0.1,
                     mouse_callbacks={"Button3": open_pavu},
                 ),
                 widget.TextBox(
@@ -378,7 +353,7 @@ screens = [
                 widget.Memory(
                     foreground=colors[7],
                     background=colors[14],
-                    format="{MemUsed} MB"
+                    format="{MemPercent: .0f} %"
                 ),
                 # 
                 # widget.Wlan(
@@ -415,7 +390,7 @@ screens = [
                     background=colors[14],
                 ),
                 widget.Clock(
-                    format="%a, %b %d",
+                    format="%b %d",
                     background=colors[14],
                     foreground=colors[5],
                 ),
