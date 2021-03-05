@@ -91,12 +91,6 @@ screens = [
                     fontsize=28,
                     padding=20,
                 ),
-                # widget.Sep(
-                #    linewidth=2,
-                #    foreground=colors[2],
-                #    padding=25,
-                #    size_percent=50,
-                # ),
                 widget.TextBox(
                     text="",
                     foreground=colors[14],
@@ -219,7 +213,6 @@ screens = [
                     background=colors[0],
                     foreground=colors[3],
                     colour_have_updates=colors[3],
-                    custom_command="./.config/qtile/updates-arch-combined",
                     display_format=" {updates}",
                     execute=update,
                     padding=20,
@@ -418,20 +411,6 @@ screens = [
                     fontsize=28,
                     padding=0,
                 ),
-                # widget.Sep(
-                #    linewidth=2,
-                #    foreground=colors[2],
-                #    padding=25,
-                #    size_percent=50,
-                # ),
-                # widget.TextBox(
-                #     text="⏻",
-                #     foreground=colors[13],
-                #     font="Font Awesome 5 Free Solid",
-                #     fontsize=34,
-                #     padding=20,
-                #     mouse_callbacks={"Button1": open_powermenu},
-                # ),
                 widget.Sep(
                    linewidth=0,
                    foreground=colors[2],
