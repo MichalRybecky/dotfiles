@@ -64,7 +64,10 @@ numlockx &
 xrdb -merge ~/.Xresources
 
 # Synology cloud station drive
-synology-cloud-station-drive &
+synology-drive &
+
+# Start flameshot
+flameshot &
 
 # Execute Qtile
 exec qtile
