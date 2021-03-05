@@ -19,6 +19,7 @@ alias ca='gnome-calculator & disown ; exit'
 alias fin='cd ~ ; ./.config/Portfolio-updater/run.sh & disown ; exit'
 alias img='feh -.'
 alias imga='feh -. *'
+alias video='mplayer'
 
 alias cd-games='cd ~/Public/HDD/HDD_L/Games'
 alias electrum='python3 /home/michal/Tools/Electrum-4.0.9/run_electrum & disown ; exit'
