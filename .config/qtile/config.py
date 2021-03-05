@@ -19,6 +19,7 @@ from libqtile.config import (
     DropDown,
     Match,
 )
+from libqtile import extension
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.lazy import lazy
@@ -81,8 +82,23 @@ def resize_down(qtile):
     resize(qtile, "down")
 
 
+
+
 keys = [
     ### The essentials
+    Key(
+        [mod], "d",
+        lazy.run_extension(extension.DmenuRun(
+            dmenu_prompt="  >",
+            dmenu_font="FiraCode Nerd Font-14",
+            dmenu_height=38,
+            background="#2e3440",
+            foreground="#88c0d0",
+            selected_background="#3f4758",
+            selected_foreground="#88c0d0",
+            )
+        )
+    ),
     Key(
         [mod], "Return",
         lazy.spawn(terminal),
@@ -119,11 +135,11 @@ keys = [
         lazy.spawn("librewolf"),
         desc="Launches LibreWolf",
     ),
-    Key(
-        [mod], "d",
-        lazy.spawn("dmenu_run"),
-        desc="Launches dmenu",
-    ),
+    # Key(
+    #     [mod], "d",
+    #     lazy.spawn("dmenu_run"),
+    #     desc="Launches dmenu",
+    # ),
 
     ### Window controls
     Key(
@@ -239,15 +255,15 @@ keys = [
         lazy.window.toggle_fullscreen(),
         desc="Toggle fullscreen",
     ),
-    Key(
-        [mod], "equal",
-        lazy.layout.grow(), desc="Grow in monad tall",
-    ),
-    Key(
-        [mod], "minus",
-        lazy.layout.shrink(),
-        desc="Shrink in monad tall",
-    ),
+    # Key(
+    #     [mod], "equal",
+    #     lazy.layout.grow(), desc="Grow in monad tall",
+    # ),
+    # Key(
+    #     [mod], "minus",
+    #     lazy.layout.shrink(),
+    #     desc="Shrink in monad tall",
+    # ),
     Key(
         [mod],
         "t",
@@ -328,22 +344,6 @@ def show_keys():
 
     return key_help
 
-
-keys.extend(
-    [
-        Key(
-            [mod],
-            "a",
-            lazy.spawn(
-                "sh -c 'echo \""
-                + show_keys()
-                + '" | rofi -dmenu -theme ~/.config/rofi/configTall.rasi -i -p "?"\''
-            ),
-            desc="Print keyboard bindings",
-        ),
-    ]
-)
-
 workspaces = [
     {
         "name": "",
@@ -374,7 +374,7 @@ workspaces = [
         "matches": [
             Match(wm_class="lutris"),
             Match(wm_class="steam"),
-            ],
+        ],
     },
     {
         "name": "",
