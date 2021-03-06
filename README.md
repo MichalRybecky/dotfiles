@@ -1,6 +1,6 @@
 # Nordic
 ### Yoinked and customized dotfiles from @Barbarossa93
-You can find his original repository [here](#https://github.com/Barbarossa93/Genome).
+You can find his original repository [here](https://github.com/Barbarossa93/Genome).
 
 ## Info
 - OS: Arch
