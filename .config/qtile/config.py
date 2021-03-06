@@ -1,34 +1,31 @@
 # -*- coding: utf-8 -*-
 import os
-import re
-import socket
 import subprocess
-import psutil
 
 from colors import colors
 from screens import screens
 
 from libqtile.config import (
-    KeyChord,
+    # KeyChord,
     Key,
-    Screen,
+    # Screen,
     Group,
     Drag,
     Click,
-    ScratchPad,
-    DropDown,
+    # ScratchPad,
+    # DropDown,
     Match,
 )
 from libqtile import extension
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.lazy import lazy
-from libqtile import qtile
-from typing import List  # noqa: F401
+# from libqtile import qtile
+# from typing import List  # noqa: F401
 from custom.bsp import Bsp as CustomBsp
 from custom.zoomy import Zoomy as CustomZoomy
-from custom.stack import Stack as CustomStack
-from custom.windowname import WindowName as CustomWindowName
+# from custom.stack import Stack as CustomStack
+# from custom.windowname import WindowName as CustomWindowName
 
 mod = "mod4"
 terminal = "alacritty"
@@ -81,11 +78,9 @@ def resize_up(qtile):
 def resize_down(qtile):
     resize(qtile, "down")
 
-
-
-
 keys = [
-    ### The essentials
+    # Launching dmenu with custom settings
+    # 'dmenu_height' package from aur needed for 'dmenu_height' argument
     Key(
         [mod], "d",
         lazy.run_extension(extension.DmenuRun(
@@ -102,7 +97,7 @@ keys = [
     Key(
         [mod], "Return",
         lazy.spawn(terminal),
-        desc="Launches My Terminal",
+        desc="Launch terminal",
     ),
     Key(
         [mod], "Tab",
@@ -112,7 +107,7 @@ keys = [
     Key(
         [mod], "q",
         lazy.window.kill(),
-        desc="Kill active window",
+        desc="Kill focused window",
     ),
     Key(
         [mod, "shift"], "r",
@@ -127,7 +122,7 @@ keys = [
     Key(
         [mod, "shift"],
         "a",
-        lazy.spawn("subl /home/michal/.config/qtile/config.py"),
+        lazy.spawn("subl /home/michal/.config/qtile"),
         desc="Config qtile",
     ),
     Key(
@@ -255,15 +250,6 @@ keys = [
         lazy.window.toggle_fullscreen(),
         desc="Toggle fullscreen",
     ),
-    # Key(
-    #     [mod], "equal",
-    #     lazy.layout.grow(), desc="Grow in monad tall",
-    # ),
-    # Key(
-    #     [mod], "minus",
-    #     lazy.layout.shrink(),
-    #     desc="Shrink in monad tall",
-    # ),
     Key(
         [mod],
         "t",
@@ -291,6 +277,7 @@ keys = [
         lazy.spawn("./.config/qtile/focus_mode.sh"),
         desc="Toggle focus mode",
     ),
+    # Audio bindings specifically for Logitech G915 media buttons
     Key(
         [], "XF86AudioNext",
         lazy.spawn("playerctl next"),
@@ -323,27 +310,6 @@ keys = [
     ),
 ]
 
-
-def show_keys():
-    key_help = ""
-    for k in keys:
-        mods = ""
-
-        for m in k.modifiers:
-            if m == "mod4":
-                mods += "Super + "
-            else:
-                mods += m.capitalize() + " + "
-
-        if len(k.key) > 1:
-            mods += k.key.capitalize()
-        else:
-            mods += k.key
-
-        key_help += "{:<30} {}".format(mods, k.desc + "\n")
-
-    return key_help
-
 workspaces = [
     {
         "name": "",
@@ -366,6 +332,7 @@ workspaces = [
         "key": "3",
         "matches": [
             Match(wm_class="subl"),
+            Match(wm_class="sublime-text"),
         ],
     },
     {
@@ -400,33 +367,7 @@ workspaces = [
 ]
 
 groups = []
-#     ScratchPad(
-#         "scratchpad",
-#         [
-#             # define a drop down terminal.
-#             # it is placed in the upper third of screen by default.
-#             DropDown(
-#                 "term",
-#                 "alacritty --class dropdown -e tmux_startup.sh",
-#                 height=0.6,
-#                 on_focus_lost_hide=False,
-#                 opacity=1,
-#                 warp_pointer=False,
-#             ),
-#             DropDown(
-#                 "fm",
-#                 "thunar",
-#                 width=0.6,
-#                 height=0.6,
-#                 x=0.2,
-#                 y=0.1,
-#                 on_focus_lost_hide=False,
-#                 opacity=1,
-#                 warp_pointer=True,
-#             ),
-#         ],
-#     ),
-# ]
+
 
 for workspace in workspaces:
     matches = workspace["matches"] if "matches" in workspace else None
@@ -436,7 +377,7 @@ for workspace in workspaces:
             [mod],
             workspace["key"],
             lazy.group[workspace["name"]].toscreen(),
-            desc="Focus this desktop",
+            desc="Focus certain workspace",
         )
     )
     keys.append(
@@ -444,7 +385,7 @@ for workspace in workspaces:
             [mod, "shift"],
             workspace["key"],
             lazy.window.togroup(workspace["name"]),
-            desc="Move focused window to another group",
+            desc="Move focused window to another workspace",
         )
     )
 
@@ -520,38 +461,6 @@ main = None  # WARNING: this is deprecated and will be removed soon
 follow_mouse_focus = True
 bring_front_click = "floating_only"
 cursor_warp = False
-# floating_layout = layout.Floating(
-#     **layout_theme,
-#     float_rules=[
-#         # Run the utility of `xprop` to see the wm class and name of an X client.
-#         Match(wm_type="utility"),
-#         Match(wm_type="notification"),
-#         Match(wm_type="toolbar"),
-#         Match(wm_type="splash"),
-#         Match(wm_type="dialog"),
-#         Match(wm_class="confirm"),
-#         Match(wm_class="dialog"),
-#         Match(wm_class="download"),
-#         Match(wm_class="error"),
-#         Match(wm_class="file_progress"),
-#         Match(wm_class="notification"),
-#         Match(wm_class="splash"),
-#         Match(wm_class="toolbar"),
-#         Match(wm_class="confirmreset"),  # gitk
-#         Match(wm_class="makebranch"),  # gitk
-#         Match(wm_class="maketag"),  # gitk
-#         Match(title="branchdialog"),  # gitk
-#         Match(title="pinentry"),  # GPG key password entry
-#         Match(wm_class="ssh-askpass"),  # ssh-askpass
-#         Match(wm_class="pomotroid"),
-#         Match(wm_class="cmatrixterm"),
-#         Match(title="Farge"),
-#         Match(wm_class="thunar"),
-#         Match(wm_class="feh"),
-#         Match(wm_class="galculator"),
-#         Match(wm_class="blueman-manager"),
-#     ],
-# )
 auto_fullscreen = True
 focus_on_window_activation = "focus"
 
