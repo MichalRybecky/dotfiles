@@ -1,6 +1,5 @@
 colors = [
     ["#2e3440", "#2e3440"],  # background
-    # ["#ffffff", "#ffffff"],
     ["#d8dee9", "#d8dee9"],  # foreground
     ["#3b4252", "#3b4252"],  # background lighter
     ["#bf616a", "#bf616a"],  # red
