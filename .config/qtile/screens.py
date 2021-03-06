@@ -34,10 +34,6 @@ def bluetooth():
     )
 
 
-def update():
-    qtile.cmd_spawn(terminal + "-e yay")
-
-
 def open_bt_menu():
     qtile.cmd_spawn("blueman")
 
@@ -66,7 +62,7 @@ group_box_settings = {
     "disable_drag": True,
     "rounded": True,
     "highlight_color": colors[2],
-    "block_highlight_text_color": colors[6],
+    "block_highlight_text_color": colors[4],
     "highlight_method": "block",
     "this_current_screen_border": colors[14],
     "this_screen_border": colors[7],
@@ -182,11 +178,15 @@ screens = [
                     fontsize=28,
                     padding=0,
                 ),
-                widget.GenPollText(
-                    func=taskwarrior,
-                    update_interval=20,
-                    foreground=colors[11],
+                # widget.GenPollText(
+                #     func=taskwarrior,
+                #     update_interval=20,
+                #     foreground=colors[11],
+                #     background=colors[14],
+                # ),
+                widget.Systray(
                     background=colors[14],
+                    padding=10,
                 ),
                 widget.TextBox(
                     text="",
@@ -212,9 +212,9 @@ screens = [
                 widget.CheckUpdates(
                     background=colors[0],
                     foreground=colors[3],
+                    distro='Arch',
                     colour_have_updates=colors[3],
                     display_format=" {updates}",
-                    execute=update,
                     padding=20,
                     update_interval=300,
                 ),
@@ -226,7 +226,6 @@ screens = [
                 #     fontsize=28,
                 #     padding=0,
                 # ),
-                widget.Systray(background=colors[0], padding=20),
                 # widget.TextBox(
                 #     text="",
                 #     foreground=colors[14],
