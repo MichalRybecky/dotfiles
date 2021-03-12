@@ -48,7 +48,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# Adding keyboard layouts
+# Configuring keyboard layouts
 setxkbmap -layout us,sk -variant ,qwerty
 
 # Switching Capc Lock with ESC
@@ -58,10 +58,13 @@ setxkbmap -option caps:swapescape
 picom -f &
 
 # Activate numlock
-numlockx &
+numlockx 
+
+# Change key rate
+xset r rate 300 50 
 
 # Merge Xresources
-xrdb -merge ~/.Xresources
+xrdb -merge ~/.Xresources 
 
 # Synology cloud station drive
 synology-drive &
