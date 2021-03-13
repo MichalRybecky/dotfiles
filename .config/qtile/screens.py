@@ -212,11 +212,11 @@ screens = [
                 widget.CheckUpdates(
                     background=colors[0],
                     foreground=colors[3],
-                    distro='Arch',
                     colour_have_updates=colors[3],
                     display_format=" {updates}",
                     padding=20,
                     update_interval=300,
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e yay -Syu')},
                 ),
                 widget.Spacer(),
                 # widget.TextBox(
@@ -251,7 +251,6 @@ screens = [
                     foreground=colors[8],
                     background=colors[14],
                     font="Font Awesome 5 Free Solid",
-                    # fontsize=38,
                 ),
                 widget.PulseVolume(
                     foreground=colors[8],
@@ -413,12 +412,12 @@ screens = [
                 widget.Sep(
                    linewidth=0,
                    foreground=colors[2],
-                   padding=10,
+                   padding=20,
                    size_percent=50,
                 ),
             ],
             38,
-            margin=[0, -4, 10, -4],
+            margin=[0, -10, 5, -10],
         ),
         bottom=bar.Gap(5),
         left=bar.Gap(5),
