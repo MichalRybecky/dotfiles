@@ -27,7 +27,7 @@ from custom.zoomy import Zoomy as CustomZoomy
 # from custom.stack import Stack as CustomStack
 # from custom.windowname import WindowName as CustomWindowName
 
-mod = "mod4"
+mod = "mod1"
 terminal = "alacritty"
 
 ## Resize functions for bsp layout
@@ -130,11 +130,16 @@ keys = [
         lazy.spawn("librewolf"),
         desc="Launches LibreWolf",
     ),
-    # Key(
-    #     [mod], "d",
-    #     lazy.spawn("dmenu_run"),
-    #     desc="Launches dmenu",
-    # ),
+    Key(
+        [mod], "e",
+        lazy.spawn("thunar"),
+        desc="Launches Thunar",
+    ),
+    Key(
+        [mod], "s",
+        lazy.spawn("signal-desktop"),
+        desc="Launches Signal",
+    ),
 
     ### Window controls
     Key(
@@ -265,12 +270,12 @@ keys = [
         lazy.layout.flip(),
         desc="Switch which side main pane occupies {MonadTall}",
     ),
-    Key(
-        [mod],
-        "s",
-        lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack",
-    ),
+    # Key(
+    #     [mod],
+    #     "s",
+    #     lazy.layout.toggle_split(),
+    #     desc="Toggle between split and unsplit sides of stack",
+    # ),
     Key(
         [mod, "shift"],
         "w",
@@ -310,13 +315,13 @@ keys = [
     ),
 ]
 
+# Command to find out wm_class of window: xprop | grep WM_CLASS
 workspaces = [
     {
         "name": "",
         "key": "1",
         "matches": [
-            Match(wm_class="librewolf"),
-            Match(wm_class="firefox"),
+            Match(wm_class="LibreWolf"),
         ],
     },
     {
@@ -331,8 +336,7 @@ workspaces = [
         "name": "",
         "key": "3",
         "matches": [
-            Match(wm_class="subl"),
-            Match(wm_class="sublime-text"),
+            Match(wm_class="sublime_text"),
         ],
     },
     {
@@ -354,14 +358,15 @@ workspaces = [
         "name": "",
         "key": "6",
         "matches": [
-            Match(wm_class="teams-for-linux")
+            Match(wm_class="Microsoft Teams - Preview")
         ],
     },
     {
         "name": "",
         "key": "7",
         "matches": [
-            Match(wm_class="virtualbox")
+            Match(wm_class="VirtualBox Manager"),
+            Match(wm_class="VirtualBox Machine"),
         ],
     },
 ]
@@ -395,12 +400,12 @@ layout_theme = {
     "border_focus": "3b4252",
     "border_normal": "3b4252",
     "font": "FiraCode Nerd Font",
-    "grow_amount": 2,
+    "grow_amount": 4,
 }
 
 layouts = [
     # layout.MonadWide(**layout_theme),
-    # layout.Bsp(**layout_theme, fair=False, grow_amount=2),
+    # layout.Bsp(**layout_theme, fair=False),
     CustomBsp(**layout_theme, fair=False),
     # layout.Columns(
     #    **layout_theme,
@@ -463,47 +468,6 @@ bring_front_click = "floating_only"
 cursor_warp = False
 auto_fullscreen = True
 focus_on_window_activation = "focus"
-
-
-# Window swallowing ;)
-@hook.subscribe.client_new
-def _swallow(window):
-    pid = window.window.get_net_wm_pid()
-    ppid = psutil.Process(pid).ppid()
-    cpids = {
-        c.window.get_net_wm_pid(): wid for wid, c in window.qtile.windows_map.items()
-    }
-    for i in range(5):
-        if not ppid:
-            return
-        if ppid in cpids:
-            parent = window.qtile.windows_map.get(cpids[ppid])
-            parent.minimized = True
-            window.parent = parent
-            return
-        ppid = psutil.Process(ppid).ppid()
-
-
-@hook.subscribe.client_killed
-def _unswallow(window):
-    if hasattr(window, "parent"):
-        window.parent.minimized = False
-
-
-# Go to group when app opens on matched group
-@hook.subscribe.client_new
-def modify_window(client):
-    # if (client.window.get_wm_transient_for() or client.window.get_wm_type() in floating_types):
-    #    client.floating = True
-
-    for group in groups:  # follow on auto-move
-        match = next((m for m in group.matches if m.compare(client)), None)
-        if match:
-            targetgroup = client.qtile.groups_map[
-                group.name
-            ]  # there can be multiple instances of a group
-            targetgroup.cmd_toscreen(toggle=False)
-            break
 
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
