@@ -4,7 +4,7 @@ set noerrorbells
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set smartindent
-set nu
+set number relativenumber
 set nowrap
 set smartcase
 set noswapfile
@@ -26,13 +26,14 @@ Plug 'git@github.com:Valloric/YouCompleteMe.git'
 Plug 'mbbill/undotree'
 Plug 'joshdick/onedark.vim'
 Plug 'sainnhe/sonokai'
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
 let g:sonokai_style = 'atlantis'
 let g:sonokai_transparent_background = 1
 
-colorscheme sonokai
+colorscheme nord
 set background=dark
 
 if executable('rg')
