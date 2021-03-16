@@ -70,7 +70,10 @@ xrdb -merge ~/.Xresources
 synology-drive &
 
 # Start flameshot
-flameshot &
+# flameshot &
+
+# Start lxsession (polkit manager)
+lxsession &
 
 # Execute Qtile
 exec qtile
