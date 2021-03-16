@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 import subprocess
 
@@ -317,20 +318,16 @@ keys = [
 # Command to find out wm_class of window: xprop | grep WM_CLASS
 workspaces = [
     {
-        "name": "1",
+        "name": "",
         "key": "1",
-        "label": "",
-        "layout": "bsp",
         "matches": [
             Match(wm_class="LibreWolf"),
         ],
         "spawn": ["librewolf"],
     },
     {
-        "name": "2",
+        "name": "",
         "key": "2",
-        "label": "",
-        "layout": "bsp",
         "matches": [
             Match(wm_class="signal-desktop"),
             Match(wm_class="lightcord"),
@@ -338,40 +335,41 @@ workspaces = [
         "spawn": ["signal-desktop"],
     },
     {
-        "name": "3",
+        "name": "",
         "key": "3",
-        "label": "",
-        "layout": "bsp",
         "matches": [
             Match(wm_class="sublime_text"),
         ],
         "spawn": [],
     },
     {
-        "name": "4",
+        "name": "",
         "key": "4",
-        "label": "",
-        "layout": "Max",
+        "matches": [
+            Match(wm_class="lutris"),
+            Match(wm_class="steam"),
+        ],
+        "spawn": [],
+    },
+    {
+        "name": "",
+        "key": "5",
         "matches": [
             Match(wm_class="spotify")
         ],
         "spawn": ["spotify"],
     },
     {
-        "name": "5",
-        "key": "5",
-        "label": "",
-        "layout": "bsp",
+        "name": "",
+        "key": "6",
         "matches": [
             Match(wm_class="Microsoft Teams - Preview")
         ],
         "spawn": [],
     },
     {
-        "name": "6",
-        "key": "6",
-        "label": "",
-        "layout": "bsp",
+        "name": "",
+        "key": "7",
         "matches": [
             Match(wm_class="VirtualBox Manager"),
             Match(wm_class="VirtualBox Machine"),
@@ -391,7 +389,6 @@ for workspace in workspaces:
             matches=matches,
             layout="bsp",
             spawn=workspace["spawn"],
-            label=workspace["label"],
         )
     )
     keys.append(
@@ -419,7 +416,6 @@ layout_theme = {
     "font": "FiraCode Nerd Font",
     "grow_amount": 4,
 }
-
 
 layouts = [
     # layout.MonadWide(**layout_theme),
@@ -451,7 +447,7 @@ layouts = [
     #    section_fg=colors[1],
     # ),
     # layout.MonadTall(**layout_theme),
-    layout.Max(**layout_theme),
+    # layout.Max(**layout_theme),
     # layout.Tile(shift_windows=True, **layout_theme),
     layout.Floating(**layout_theme),
 ]
