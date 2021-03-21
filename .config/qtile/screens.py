@@ -54,7 +54,7 @@ icon_size = 14
 
 screens = [
     Screen(
-        wallpaper="~/Pictures/mountains.png",
+        wallpaper="~/.config/wallpapers/mountains.png",
         wallpaper_mode="fill",
         top=bar.Bar(
             [
@@ -126,7 +126,7 @@ screens = [
                 ),
                 widget.TextBox(
                     text=" ",
-                    foreground=colors[1],
+                    foreground=colors[8],
                     font="Font Awesome 5 Free Solid",
                     fontsize=icon_size,
                 ),
@@ -180,7 +180,7 @@ screens = [
                     text=" ",
                     font="Font Awesome 5 Free Solid",
                     fontsize=icon_size,
-                    foreground=colors[1],
+                    foreground=colors[8],
                 ),
                 widget.Clock(
                     format="%b %d",
@@ -195,7 +195,7 @@ screens = [
                 widget.TextBox(
                     text=" ",
                     font="Font Awesome 5 Free Solid",
-                    foreground=colors[1],
+                    foreground=colors[8],
                     fontsize=14,
                 ),
                 widget.Clock(
