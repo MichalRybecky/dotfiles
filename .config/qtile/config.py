@@ -22,6 +22,7 @@ from libqtile.lazy import lazy
 # from libqtile import qtile
 # from typing import List  # noqa: F401
 from custom.bsp import Bsp as CustomBsp
+from custom.bsp import Bsp as CustomBspMargins
 from custom.zoomy import Zoomy as CustomZoomy
 # from custom.stack import Stack as CustomStack
 # from custom.windowname import WindowName as CustomWindowName
@@ -322,7 +323,7 @@ workspaces = [
         "label": "",
         "layout": "bsp",
         "matches": [
-            Match(wm_class="LibreWolf"),
+            Match(wm_class="librewolf"),
         ],
         "spawn": ["librewolf"],
     },
@@ -351,7 +352,7 @@ workspaces = [
         "name": "4",
         "key": "4",
         "label": "",
-        "layout": "Max",
+        "layout": "bsp-margins",
         "matches": [
             Match(wm_class="spotify")
         ],
@@ -371,25 +372,25 @@ workspaces = [
         "name": "6",
         "key": "6",
         "label": "",
-        "layout": "bsp",
+        "layout": "zoomy",
         "matches": [
             Match(wm_class="VirtualBox Manager"),
             Match(wm_class="VirtualBox Machine"),
+            Match(wm_class="rawtherapee"),
+            Match(wm_class="gimp"),
         ],
         "spawn": [],
     },
 ]
 
 groups = []
-
-
 for workspace in workspaces:
     matches = workspace["matches"] if "matches" in workspace else None
     groups.append(
         Group(
             workspace["name"],
             matches=matches,
-            layout="bsp",
+            layout=workspace["layout"],
             spawn=workspace["spawn"],
             label=workspace["label"],
         )
@@ -420,6 +421,15 @@ layout_theme = {
     "grow_amount": 4,
 }
 
+layout_theme_margins = {
+    "name": "bsp-margins",
+    "border_width": 3,
+    "margin": [150, 300, 150, 300],
+    "border_focus": "3b4252",
+    "border_normal": "3b4252",
+    "font": "FiraCode Nerd Font",
+    "grow_amount": 4,
+}
 
 layouts = [
     # layout.MonadWide(**layout_theme),
@@ -451,9 +461,10 @@ layouts = [
     #    section_fg=colors[1],
     # ),
     # layout.MonadTall(**layout_theme),
-    layout.Max(**layout_theme),
+    # layout.Max(**layout_theme),
     # layout.Tile(shift_windows=True, **layout_theme),
     layout.Floating(**layout_theme),
+    CustomBspMargins(**layout_theme_margins),
 ]
 
 # Setup bar
