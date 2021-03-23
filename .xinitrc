@@ -31,29 +31,14 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# Configuring keyboard layouts
+# Keyboard configuration
 setxkbmap -layout us,sk -variant ,qwerty
-
-# Switching Capc Lock with ESC
 setxkbmap -option caps:swapescape
-
-# Picom
-#picom -f &
-
-# Change key rate
 xset r rate 300 50 
 
-# Merge Xresources
-xrdb -merge ~/.Xresources 
-
-# Synology cloud station drive
+# Start programs
 synology-drive &
+picom -f &
+polkit-dumb-agent &
 
-# Start flameshot
-# flameshot &
-
-# Start lxsession (polkit manager)
-lxsession &
-
-# Execute Qtile
 exec qtile
