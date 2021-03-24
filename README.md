@@ -1,4 +1,7 @@
 # Nordic
+
+<imt src="https://github.com/MichalRybecky/dotfiles/blob/main/.config/rice.jpg" alt="screenshot" align="center" width="900px">
+
 ### Yoinked and customized dotfiles from @Barbarossa93
 You can find his original repository [here](https://github.com/Barbarossa93/Genome).
 
