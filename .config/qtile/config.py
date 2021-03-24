@@ -137,8 +137,8 @@ keys = [
     ),
     Key(
         [mod], "s",
-        lazy.spawn("signal-desktop"),
-        desc="Launches Signal",
+        lazy.spawn(terminal + " -e ranger"),
+        desc="Launches ranger",
     ),
 
     ### Window controls
