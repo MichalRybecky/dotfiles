@@ -1,6 +1,7 @@
 # Nordic
 
-![screenshot](https://user-images.githubusercontent.com/56262573/112335703-5e5bab80-8cb4-11eb-8204-951e9cbc823a.jpg)
+![screenshots](https://user-images.githubusercontent.com/56262573/112450260-1f793480-8d4c-11eb-874b-faad15d982db.jpg)
+
 
 ## Info
 - OS: Arch
