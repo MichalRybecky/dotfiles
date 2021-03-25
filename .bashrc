@@ -14,7 +14,6 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 alias pdf='gio open'
 alias g='g++ -Wall -std=c++14'
-alias ls='ls -hN --color=auto --group-directories-first'
 
 alias vid='mpv'
 alias sudo='doas'
@@ -22,7 +21,6 @@ alias img='feh -.'
 alias bm='bashmount'
 alias mkd='mkdir -pv'
 alias tt='taskwarrior-tui'
-alias grep='grep --color=auto'
 
 alias cd-games='cd /mnt/HDD/Games'
 alias check-usb='sudo badblocks -w -s -o error.log'
@@ -34,6 +32,10 @@ alias neofetch='neofetch --ascii /home/michal/.config/neofetch/small_arch'
 
 # cd to dir only by typing it's name
 shopt -s autocd
+
+# Load Nord color theme dir_colors
+test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
+
 
 # Different user prompt for user and root
 if [ "$EUID" -ne 0 ]
