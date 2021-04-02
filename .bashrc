@@ -23,6 +23,7 @@ alias mkd='mkdir -pv'
 alias tt='taskwarrior-tui'
 
 alias cd-games='cd /mnt/HDD/Games'
+alias update-origin='cd /mnt/HDD/Games/origin/drive_c/Program\ Files\ \(x86\)/Origin ; ./updateorigin.sh'
 alias check-usb='sudo badblocks -w -s -o error.log'
 alias list-packages='pacman -Qet | awk "{print $1}"'
 alias fin='cd ~ ; ./.config/Portfolio-updater/run.sh & disown ; exit'
@@ -35,7 +36,6 @@ shopt -s autocd
 
 # Load Nord color theme dir_colors
 test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
-
 
 # Different user prompt for user and root
 if [ "$EUID" -ne 0 ]
