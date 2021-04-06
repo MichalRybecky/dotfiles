@@ -42,5 +42,6 @@ synology-drive &
 picom -f &
 polkit-dumb-agent &
 mullvad-vpn &
+qbittorrent &
 
 exec qtile
