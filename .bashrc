@@ -22,6 +22,7 @@ alias bm='bashmount'
 alias mkd='mkdir -pv'
 alias tt='taskwarrior-tui'
 
+alias storage='ncdu'
 alias cd-games='cd /mnt/HDD/Games'
 alias update-origin='cd /mnt/HDD/Games/origin/drive_c/Program\ Files\ \(x86\)/Origin ; ./updateorigin.sh'
 alias check-usb='sudo badblocks -w -s -o error.log'
