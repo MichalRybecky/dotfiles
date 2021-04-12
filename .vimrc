@@ -1,7 +1,6 @@
 syntax on
 
 set encoding=utf-8
-
 set noerrorbells
 set tabstop=4 softtabstop=4
 set shiftwidth=4
@@ -11,7 +10,7 @@ set nowrap
 set smartcase
 set noswapfile
 set nobackup
-set undodir=~/.vim/undodir 
+set undodir=~/.vim/undodir
 set undofile
 set incsearch
 
@@ -20,6 +19,7 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'scrooloose/nerdtree'
 Plug 'morhetz/gruvbox'
 Plug 'jremmen/vim-ripgrep'
 Plug 'vim-utils/vim-man'
@@ -49,13 +49,23 @@ let g:netrw_winsize = 25
 
 let g:strlp_use_caching = 0
 
-
 let python_highlist_numbers = 1
 let python_highligh_builtins = 1
 let python_highlight_exceptions = 1
 let python_highligh_space_errors = 1
 
+" NerdTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
+" Run Python with F9
+autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
+nnoremap <Leader>f :NERDTreeToggle<CR>
 nnoremap <Leader>h :wincmd h<CR>
 nnoremap <Leader>j :wincmd j<CR>
 nnoremap <Leader>k :wincmd k<CR>
@@ -64,6 +74,7 @@ nnoremap <Leader>u :UndotreeShow<CR>
 nnoremap <Leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <Leader>ps :Rg<CR>
 nnoremap <silent> <Leader>+ :vertical resize +5<CR>
+
 nnoremap <silent> <Leader>- :vertical resize -5<CR>
 
 nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
