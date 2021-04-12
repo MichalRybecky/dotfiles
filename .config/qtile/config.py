@@ -30,6 +30,15 @@ from custom.zoomy import Zoomy as CustomZoomy
 mod = "mod1"
 terminal = "alacritty"
 
+
+# @hook.subscribe.client_new
+# def floating_dialogs(window):
+#     dialog = window.window.get_wm_type() == 'tk'
+#     transient = window.window.get_wm_transient_for()
+#     if dialog or transient:
+#         window.floating = True
+
+
 ## Resize functions for bsp layout
 def resize(qtile, direction):
     layout = qtile.current_layout
@@ -139,6 +148,11 @@ keys = [
         [mod], "s",
         lazy.spawn(terminal + " -e ranger"),
         desc="Launches ranger",
+    ),
+    Key(
+        [mod], "f",
+        lazy.spawn("freetube"),
+        desc="Launches freetube",
     ),
 
     ### Window controls
@@ -263,13 +277,13 @@ keys = [
     ),
 
     ### Stack controls
-    Key(
-        [mod],
-        "f",
-        lazy.layout.rotate(),
-        lazy.layout.flip(),
-        desc="Switch which side main pane occupies {MonadTall}",
-    ),
+    # Key(
+    #     [mod],
+    #     "f",
+    #     lazy.layout.rotate(),
+    #     lazy.layout.flip(),
+    #     desc="Switch which side main pane occupies {MonadTall}",
+    # ),
     # Key(
     #     [mod],
     #     "s",
@@ -344,7 +358,7 @@ workspaces = [
         "label": "",
         "layout": "bsp",
         "matches": [
-            Match(wm_class="sublime_text"),
+            Match(wm_class=""),
         ],
         "spawn": [],
     },
@@ -352,11 +366,11 @@ workspaces = [
         "name": "4",
         "key": "4",
         "label": "",
-        "layout": "bsp-margins",
+        "layout": "monadwide-audio",
         "matches": [
             Match(wm_class="spotify")
         ],
-        "spawn": ["spotify"],
+        "spawn": [terminal + " -e ./home/michal/.config/qtile/audio.sh", "spotify"],
     },
     {
         "name": "5",
@@ -431,8 +445,19 @@ layout_theme_margins = {
     "grow_amount": 4,
 }
 
+layout_audio = {
+    "name": "monadwide-audio",
+    "border_width": 3,
+    "margin": 100,
+    "border_focus": "3b4252",
+    "border_normal": "3b4252",
+    "font": "FiraCode Nerd Font",
+    "ratio": 0.65,
+    "new_client_position": "after_current",
+}
+
 layouts = [
-    # layout.MonadWide(**layout_theme),
+    layout.MonadWide(**layout_audio),
     # layout.Bsp(**layout_theme, fair=False),
     CustomBsp(**layout_theme, fair=False),
     # layout.Columns(
@@ -443,7 +468,7 @@ layouts = [
     #    # border_normal_stack=colors[2],
     #    split=False,
     # ),
-    layout.RatioTile(**layout_theme),
+    #layout.RatioTile(**layout_theme),
     # layout.VerticalTile(**layout_theme),
     # layout.Matrix(**layout_theme, columns=3),
     CustomZoomy(**layout_theme),
@@ -464,7 +489,7 @@ layouts = [
     # layout.Max(**layout_theme),
     # layout.Tile(shift_windows=True, **layout_theme),
     layout.Floating(**layout_theme),
-    CustomBspMargins(**layout_theme_margins),
+    #CustomBspMargins(**layout_theme_margins),
 ]
 
 # Setup bar
