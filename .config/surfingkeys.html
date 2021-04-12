@@ -1,0 +1,119 @@
+// an example to create a new mapping `ctrl-y`
+mapkey('<Ctrl-y>', 'Show me the money', function() {
+    Front.showPopup('a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');
+});
+
+// an example to replace `T` with `gt`, click `Default mappings` to see how `T` works.
+map('Y', 'T');
+map('T', 't');
+map('O', 'gf');
+map('t', 'go');
+
+map("K", "R");
+map("J", "E");
+map("K", "R");
+map("L", "D");
+map("H", "S");
+
+// Unmapping not needed shortcuts
+unmap('<Ctrl-i>');
+
+unmap('om')
+unmap('oy')
+unmap('oi')
+unmap('oh')
+unmap('ox')
+unmap('ow')
+
+unmap('sb')
+
+unmap('g#')
+unmap('g?')
+unmap('gxx')
+unmap('gt')
+unmap('gT')
+unmap('gx0')
+unmap('gx$')
+unmap('gu')
+unmap('gt')
+unmap('gi')
+unmap('gr')
+unmap('gf')
+unmap('gs')
+unmap('g$')
+unmap('g0')
+unmap('gxT')
+unmap('gxt')
+
+unmap('yG')
+unmap('yQ')
+unmap('yS')
+unmap('yT')
+unmap('yc')
+unmap('yd')
+unmap('yf')
+unmap('yg')
+unmap('yT')
+unmap('ya')
+unmap('yh')
+unmap('yj')
+unmap('yl')
+unmap('yma')
+unmap('ymc')
+unmap('ymv')
+unmap('yp')
+unmap('yq')
+unmap('ys')
+
+// set theme
+settings.theme = `
+.sk_theme {
+    font-family: Input Sans Condensed, Charcoal, sans-serif;
+    font-size: 10pt;
+    background: #2e3440;
+    color: #abb2bf;
+}
+.sk_theme tbody {
+    color: #fff;
+}
+.sk_theme input {
+    color: #d0d0d0;
+}
+.sk_theme .url {
+    color: #82b7c7;
+}
+.sk_theme .annotation {
+    color: #fff;
+}
+.sk_theme .omnibar_highlight {
+    color: #fff;
+}
+.sk_theme .omnibar_timestamp {
+    color: #fff;
+}
+.sk_theme .omnibar_visitcount {
+    color: #82b7c7;
+}
+.sk_theme #sk_omnibarSearchResult ul li:nth-child(odd) {
+    background: #303030;
+}
+.sk_theme #sk_omnibarSearchResult ul li.focused {
+    background: #3e4452;
+}
+#sk_status, #sk_find {
+    font-size: 20pt;
+}`;
+
+
+settings.hintAlign = "left";
+settings.scrollStepSize = 100;
+settings.tabsMRUOrder = false;
+settings.tabsThreshold = 0;
+settings.defaultSearchEngine = "d";
+settings.focusFirstCandidate = true;
+settings.smoothScroll = false;
+
+removeSearchAliasX('g');
+removeSearchAliasX('w');
+removeSearchAliasX('b');
+removeSearchAliasX('y');
