@@ -5,9 +5,8 @@ mapkey('<Ctrl-y>', 'Show me the money', function() {
 
 // an example to replace `T` with `gt`, click `Default mappings` to see how `T` works.
 map('Y', 'T');
-map('T', 't');
 map('O', 'gf');
-map('t', 'go');
+map('T', 'go');
 
 map("K", "R");
 map("J", "E");
@@ -117,3 +116,8 @@ removeSearchAliasX('g');
 removeSearchAliasX('w');
 removeSearchAliasX('b');
 removeSearchAliasX('y');
+removeSearchAliasX('d');
+
+addSearchAlias('d', 'duckduckgo', 'https://duckduckgo.com/?q=')
+addSearchAlias('s', 'startpage', 'https://www.startpage.com/do/search?query=')
+addSearchAlias('x', 'searx', 'https://searx.be/search?q=')
