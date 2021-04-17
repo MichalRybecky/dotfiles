@@ -24,6 +24,7 @@ alias tt='taskwarrior-tui'
 alias weather='curl wttr.in/bratislava'
 alias jakp='cd ~/Coding/Projects/JAKP'
 
+alias mount-nextcloud='sudo sshfs michal@192.168.0.194:/mnt/ssd /mnt/nextcloud'
 alias davinci-resolve='cd /opt/resolve/bin/ ; ./resolve & disown ; exit'
 alias storage='ncdu'
 alias cd-games='cd /mnt/HDD/Games'
@@ -34,6 +35,11 @@ alias fin='cd ~ ; ./.config/Portfolio-updater/run.sh & disown ; exit'
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 alias neofetch='neofetch --ascii /home/michal/.config/neofetch/small_arch'
 #---------------------------------------------------
+
+# Unsetting env variables for shell
+# without this, ranger UI breaks (Qtile specific)
+unset LINES
+unset COLUMNS
 
 # cd to dir only by typing it's name
 shopt -s autocd
