@@ -290,12 +290,6 @@ keys = [
     #     lazy.layout.toggle_split(),
     #     desc="Toggle between split and unsplit sides of stack",
     # ),
-    Key(
-        [mod, "shift"],
-        "w",
-        lazy.spawn("./.config/qtile/focus_mode.sh"),
-        desc="Toggle focus mode",
-    ),
     # Audio bindings specifically for Logitech G915 media buttons
     Key(
         [], "XF86AudioNext",
