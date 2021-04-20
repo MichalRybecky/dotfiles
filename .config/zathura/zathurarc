@@ -1,5 +1,17 @@
 set selection-clipboard clipboard
 
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+
 set recolor
 set default-bg "#2e3440"
 set recolor-lightcolor "#2e3440"
+
+map K zoom in
+map J zoom out
+map p print
+map R rotate
+map r reload
+map e scroll half-up
+map d scroll half-down
+map D toggle_page_mode
