@@ -8,14 +8,13 @@
 - WM: [Qtile](https://github.com/qtile/qtile)
 - Terminal: [Alacritty](https://github.com/alacritty/alacritty)
 - Browser: [LibreWolf](https://librewolf-community.gitlab.io/)
-  - Modification: [Minimal Functional Fox](https://github.com/mut-ex/minimal-functional-fox)
-  - Startpage: [startpage](https://github.com/deepjyoti30/startpage)
+  - Modification: [FlyingFox](https://github.com/akshat46/FlyingFox)
 - Fonts:
   - FiraCode [Nerd Font](https://github.com/ryanoasis/nerd-fonts) for topbar
   - [Font Awesome 5 Free](https://fontawesome.com/) for icons
   - [Adobe Source Code Pro](https://aur.archlinux.org/packages/adobe-source-pro-fonts/) for GTK apps
 - Music player: Spotify with [Dribblish](https://github.com/morpheusthewhite/spicetify-themes/tree/master/Dribbblish) Nord-dark theme
-- Gtk: [Nordic](https://github.com/EliverLara/Nordic)
+- Gtk theme: [Nordic](https://github.com/EliverLara/Nordic)
 - File managers: [Thunar](https://wiki.archlinux.org/index.php/Thunar) and [Ranger](https://wiki.archlinux.org/index.php/Ranger)
 - Editors:
   - Sublime Text 3 with [Nord-sublime-text color scheme](https://github.com/arcticicestudio/nord-sublime-text)
