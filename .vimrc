@@ -1,5 +1,4 @@
 syntax on
-
 set encoding=utf-8
 set noerrorbells
 set tabstop=4 softtabstop=4
@@ -14,26 +13,26 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
 
-set colorcolumn=80
+"set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
-Plug 'morhetz/gruvbox'
-Plug 'jremmen/vim-ripgrep'
+"Plug 'jremmen/vim-ripgrep'
 Plug 'vim-utils/vim-man'
 Plug 'git@github.com:kien/ctrlp.vim.git'
 Plug 'git@github.com:Valloric/YouCompleteMe.git'
 Plug 'mbbill/undotree'
-Plug 'joshdick/onedark.vim'
-Plug 'sainnhe/sonokai'
+"Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'godlygeek/tabular'
+Plug 'vimwiki/vimwiki'
+Plug 'itchyny/lightline.vim'
+Plug 'ap/vim-css-color'
 
 call plug#end()
-
-let g:sonokai_style = 'atlantis'
-let g:sonokai_transparent_background = 1
 
 colorscheme nord
 set background=dark
@@ -49,10 +48,41 @@ let g:netrw_winsize = 25
 
 let g:strlp_use_caching = 0
 
+" Toggling line wraping
+:function ToggleWrap()
+: if (&wrap == 1)
+:   set nowrap
+: else
+:   set wrap linebreak
+: endif
+:endfunction
+
+map <F8> :call ToggleWrap()<CR>
+map! <F8> ^[:call ToggleWrap()<CR>
+
+
+" Python
 let python_highlist_numbers = 1
 let python_highligh_builtins = 1
 let python_highlight_exceptions = 1
 let python_highligh_space_errors = 1
+
+" VimWiki
+set nocompatible
+filetype plugin on
+let g:vimwiki_markdown_link_ext = 1
+let g:vimwiki_list = [{'path':'~/CloudStation/wiki', 'path_html':'~/CloudStation/wiki/html'}]
+
+" Lightline
+set noshowmode
+let g:lightline = {
+			\ 'colorscheme': 'nord',
+			\ }
+set laststatus=2
+
+" MarkdownPreview
+let g:mkdp_auto_close = 1
+set updatetime=100
 
 " NerdTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -65,18 +95,26 @@ map <C-l> <C-w>l
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
+" Copying and pasting
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> "c<ESC>"+p
+imap <C-v> <C-r><C-o>+
+
+
 nnoremap <Leader>f :NERDTreeToggle<CR>
 nnoremap <Leader>h :wincmd h<CR>
 nnoremap <Leader>j :wincmd j<CR>
 nnoremap <Leader>k :wincmd k<CR>
 nnoremap <Leader>l :wincmd l<CR>
 nnoremap <Leader>u :UndotreeShow<CR>
-nnoremap <Leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
-nnoremap <Leader>ps :Rg<CR>
+nnoremap <LMarkdownPrevieweader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <silent> <Leader>+ :vertical resize +5<CR>
 
 nnoremap <silent> <Leader>- :vertical resize -5<CR>
 
 nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
-noremap <silent> <Leader>gf :YcmCompleter FixIt<CR>
+nnoremap <silent> <Leader>gf :YcmCompleter FixIt<CR>
 
+nnoremap <silent> <Leader>mp :MarkdownPreview<CR>
+nnoremap <silent> <Leader>vt :VimwikiTable<CR>
