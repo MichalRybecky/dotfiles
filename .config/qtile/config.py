@@ -150,6 +150,11 @@ keys = [
         desc="Launches ranger",
     ),
     Key(
+        [mod], "v",
+        lazy.spawn(terminal + " -e vim /home/michal/CloudStation/wiki/index.wiki"),
+        desc="Launches vimwiki",
+    ),
+    Key(
         [mod], "f",
         lazy.spawn("freetube"),
         desc="Launches freetube",
@@ -372,7 +377,7 @@ workspaces = [
         "label": "",
         "layout": "bsp",
         "matches": [
-            Match(wm_class="Microsoft Teams - Preview")
+            Match(wm_class="qbittorrent")
         ],
         "spawn": [],
     },
