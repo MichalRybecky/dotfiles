@@ -145,7 +145,7 @@ keys = [
         desc="Launches Thunar",
     ),
     Key(
-        [mod], "s",
+        [mod], "r",
         lazy.spawn(terminal + " -e ranger"),
         desc="Launches ranger",
     ),
@@ -467,7 +467,7 @@ layouts = [
     #    # border_normal_stack=colors[2],
     #    split=False,
     # ),
-    #layout.RatioTile(**layout_theme),
+    layout.RatioTile(**layout_theme),
     # layout.VerticalTile(**layout_theme),
     # layout.Matrix(**layout_theme, columns=3),
     CustomZoomy(**layout_theme),
