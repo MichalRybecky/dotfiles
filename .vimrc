@@ -32,6 +32,7 @@ Plug 'godlygeek/tabular'
 Plug 'vimwiki/vimwiki'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 call plug#end()
 
