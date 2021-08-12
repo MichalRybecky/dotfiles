@@ -151,7 +151,7 @@ keys = [
     ),
     Key(
         [mod], "v",
-        lazy.spawn(terminal + " -e vim /home/michal/CloudStation/wiki/index.wiki"),
+        lazy.spawn(terminal + " -e vim /home/michal/Sync/wiki/index.wiki"),
         desc="Launches vimwiki",
     ),
     Key(
