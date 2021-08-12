@@ -38,10 +38,7 @@ xset r rate 300 50
 numlockx
 
 # Start programs
-synology-drive &
 picom -f &
 polkit-dumb-agent &
-mullvad-vpn &
-qbittorrent &
 
-exec qtile
+exec /usr/bin/qtile start
