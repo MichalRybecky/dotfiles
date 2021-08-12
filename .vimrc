@@ -73,7 +73,7 @@ let python_highligh_space_errors = 1
 set nocompatible
 filetype plugin on
 let g:vimwiki_markdown_link_ext = 1
-let g:vimwiki_list = [{'path':'~/CloudStation/wiki', 'path_html':'~/CloudStation/wiki/html'}]
+let g:vimwiki_list = [{'path':'~/Sync/wiki', 'path_html':'~/Sync/wiki/html'}]
 
 " Lightline
 set noshowmode
