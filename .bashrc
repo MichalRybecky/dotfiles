@@ -34,7 +34,7 @@ alias bm='bashmount'
 alias tt='taskwarrior-tui'
 alias weather='curl -s wttr.in/bratislava | head -n 37'
 alias jakp='cd ~/Coding/Projects/JAKP'
-alias vw='librewolf ~/CloudStation/wiki/html/index.html & disown ; exit'
+alias vw='librewolf ~/Sync/wiki/html/index.html & disown ; exit'
 
 alias davinci-resolve='cd /opt/resolve/bin/ ; ./resolve & disown ; exit'
 alias cd-games='cd /mnt/HDD/Games'
@@ -42,8 +42,9 @@ alias update-origin='cd /mnt/HDD/Games/origin/drive_c/Program\ Files\ \(x86\)/Or
 alias check-usb='sudo badblocks -w -s -o error.log'
 alias list-packages='pacman -Qet | awk "{print $1}"'
 alias fin='cd ~ ; ./.config/Portfolio-updater/run.sh & disown ; exit'
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+alias config='/usr/bin/git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME'
 alias neofetch='neofetch --ascii /home/michal/.config/neofetch/small_arch'
+alias hosts='getent hosts'
 #---------------------------------------------------
 
 # Unsetting env variables for shell
