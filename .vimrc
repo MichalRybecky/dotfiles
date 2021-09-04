@@ -73,7 +73,12 @@ let python_highligh_space_errors = 1
 set nocompatible
 filetype plugin on
 let g:vimwiki_markdown_link_ext = 1
-let g:vimwiki_list = [{'path':'~/Sync/wiki', 'path_html':'~/Sync/wiki/html'}]
+let g:vimwiki_list = [{
+	\ 'path': '$HOME/Sync/wiki',
+	\ 'path_html':'$HOME/Sync/wiki/.html',
+	\ 'template_path': '$HOME/Sync/wiki/.templates',
+	\ 'template_default': 'default',
+	\ 'template_ext': '.html'}]
 
 " Lightline
 set noshowmode
@@ -103,6 +108,9 @@ vmap <C-x> "+c
 vmap <C-v> "c<ESC>"+p
 imap <C-v> <C-r><C-o>+
 
+" Ctrl + Backspace deletes whole word
+noremap! <C-BS> <C-w>
+noremap! <C-h> <C-w>
 
 nnoremap <Leader>f :NERDTreeToggle<CR>
 nnoremap <Leader>h :wincmd h<CR>
