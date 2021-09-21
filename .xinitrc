@@ -40,5 +40,6 @@ numlockx
 # Start programs
 picom -f &
 polkit-dumb-agent &
+openrgb -p white.orp &
 
 exec /usr/bin/qtile start
