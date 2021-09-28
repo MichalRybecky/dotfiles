@@ -6,8 +6,8 @@ set statusbar-h-padding 0
 set statusbar-v-padding 0
 
 set recolor
-set default-bg "#2e3440"
-set recolor-lightcolor "#2e3440"
+set default-bg rgba(46,52,64,0.7)
+set recolor-lightcolor rgba(0,0,0,0)
 
 map K zoom in
 map J zoom out
