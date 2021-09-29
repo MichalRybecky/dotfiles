@@ -494,7 +494,7 @@ layouts = [
 # Setup bar
 
 widget_defaults = dict(
-    font="FiraCode Nerd Font", fontsize=18, padding=3, background=colors[0]
+    font="JetBrainsMono Nerd Font Mono Medium", fontsize=18, padding=3, background=colors[0]
 )
 extension_defaults = widget_defaults.copy()
 
