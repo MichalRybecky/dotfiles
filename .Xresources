@@ -47,6 +47,10 @@
 *.color15: nord6
 
 ! URxvt
-URxvt.font: 		xft:FiraCode Nerd Font:size=14
+URxvt.font: 		xft:JetBrainsMono Nerd Font:size=12
 URxvt.scrollBar:	false
 URxvt.lineSpace:	-2
+
+! Mouse cursor
+Xcursor.theme: Bibata-Original-Classic
+Xcursor.size: 13
