@@ -336,7 +336,7 @@ workspaces = [
         "label": "",
         "layout": "bsp",
         "matches": [
-            Match(wm_class="librewolf"),
+            Match(wm_class=""),
         ],
         "spawn": ["librewolf"],
     },
@@ -349,7 +349,7 @@ workspaces = [
             Match(wm_class="signal-desktop"),
             Match(wm_class="lightcord"),
         ],
-        "spawn": ["signal-desktop"],
+        "spawn": ["signal-desktop", "lightcord"],
     },
     {
         "name": "3",
@@ -369,7 +369,7 @@ workspaces = [
         "matches": [
             Match(wm_class="spotify")
         ],
-        "spawn": [terminal + " -e ./home/michal/.config/qtile/audio.sh", "spotify"],
+        "spawn": ["spotify"],
     },
     {
         "name": "5",
